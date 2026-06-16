@@ -29,5 +29,10 @@ body{background:var(--bg);color:var(--t);font-family:var(--B);overflow-x:hidden;
 
 #cD,#cR{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
 #cD{width:7px;height:7px;background:var(--g);mix-blend-mode:screen;transition:transform .08s}
+#cR{width:34px;height:34px;border:1.5px solid var(--g2);opacity:.6;transition:all .18s}
+body:has(a:hover) #cR,body:has(button:hover) #cR,body:has(input:hover) #cR{width:50px;height:50px;border-color:var(--g);opacity:1}
+body::after{content: '';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:url("data:image/svg+xml,%3Csvg='http://www.w3.org/2000/svg' width='200'%3E%3Cfliter id='n'%3E%3CfeTurbulence type'fractalNoise' baseFrequency='.0' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height'200' filter='url(%23n)' opacity='.03' /%eE%3C/svg%3E");opacity:.5}
+
+
 
 
