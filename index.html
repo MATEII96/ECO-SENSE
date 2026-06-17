@@ -42,6 +42,17 @@ body::after{content: '';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .nl{display:flex;gap:1.6rem;list-style:none}
 .nl a{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);text-decoration:none}
+.nl a.on,.nl a:hover{color:var(--g)}
+.nbg{display:flex;align-items:center;gap:.4rem;border:1px solid var(--b2);border-radius:100px;padding:.28rem .8rem;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g2)}
+.nbg span{width:6px;height:6px;border-radius:50%;background:var(--g2);animation:blink 1.5s infinite}
+@media(max-width:900px){.nl{display:none}#nav{padding:.8rem 1.4rem}}
+
+
+
+
+
+
+
 
 
 
