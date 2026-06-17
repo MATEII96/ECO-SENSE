@@ -33,6 +33,16 @@ body{background:var(--bg);color:var(--t);font-family:var(--B);overflow-x:hidden;
 body:has(a:hover) #cR,body:has(button:hover) #cR,body:has(input:hover) #cR{width:50px;height:50px;border-color:var(--g);opacity:1}
 body::after{content: '';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:url("data:image/svg+xml,%3Csvg='http://www.w3.org/2000/svg' width='200'%3E%3Cfliter id='n'%3E%3CfeTurbulence type'fractalNoise' baseFrequency='.0' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height'200' filter='url(%23n)' opacity='.03' /%eE%3C/svg%3E");opacity:.5}
 
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--g),var(--g2));z-index:300;width:0;transition:width .08s}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;background:rgba(7,9,10,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--b)}
+#nav.sc{box-shadow:0 4px 40px rgba(0,0,0,.6)}
+.nlogo{font-family:var(--F);font-weight:700;font-size:1.28rem;color:var(--w);letter-spacing:-.03em;display:flex;align-items:center;gap:.4rem;cursor:none;text-decoration:none}
+.nd{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 10px var(--g);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.nl{display:flex;gap:1.6rem;list-style:none}
+.nl a{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);text-decoration:none}
+
 
 
 
