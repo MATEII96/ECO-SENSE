@@ -47,13 +47,26 @@ body::after{content: '';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .nbg span{width:6px;height:6px;border-radius:50%;background:var(--g2);animation:blink 1.5s infinite}
 @media(max-width:900px){.nl{display:none}#nav{padding:.8rem 1.4rem}}
 
-
-
-
-
-
-
-
-
+section{position:relative;z-index:1}
+.C{max-width:1160px;margin:0 auto;padding: 0 3rem}
+@media(max-width:700px){.C{padding: 0 1.2rem}}
+.sup{font-family:var(--M);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);display:flex;align-items:center;gap:.55rem;margin-bottom:.8rem}
+.sup::before{content:'';display:block;width:20px;height:1px;background:var(--g2)}
+h2.T{font-family:var(--F);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.05;letter-spacing:-.04em;color:var(--w)}
+h2.T .a{color:var(--g);font-style:italic}
+h2.T .a2{color:var(--g2)}
+.sub{font-size:.98rem;line-height:1.8;color:var(--t);opacity:.72;max-width:600px;margin-top:.8rem}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+.rv.up{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.card{background:var(--panel);border:1px solid var(--b);border-radius:18px;transition:border-color .3s,transform .3s,box-shadow .3s}
+.card:hover{border-color:var(--b2);transform:translateY(-3px);box-shadow:0 8px 32px rgba(74,222,128,.06)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.7rem;border-radius:100px;font-family:var(--B);font-weight:600;font-size:.88rem;border:none;transition:all .2s;text-decoration:none}
+.btn-g{background:var(--g);color:var(--bg)}
+.btn-g:hover{transform:translateY(-2px);box-shadow: 0 0 28px rgba(74,222,128,.35)}
+.btn-o{background:transparent;color:var(--t2);border:1px solid rgba(134,239,172,.25)}
+.btn-o:hover{border-color:var(--g);color:var(--g)}
+.formula{font-family:var(--M);font-size:.78rem;padding:.4rem .85rem;border-radius:7px;background:rgba(74,2222,128,.05);border:1px solid rgba(74,222,128,.1);color:var(--g);display:block;margin:.3rem 0}
+.formula.b
 
 
