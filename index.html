@@ -190,6 +190,26 @@ input[type=range].cr::-webkit-slider-thumb:active{transform:scale(1.25)}
 #assembly{padding:7rem 0;background:var(--bg);border-top:1px solid var(--b)}
 .asm-wrap{margin-top:3rem}
 .asm-top{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+@media(max-width:900px){.am-top{grid-template-columns:1fr}}
+.asm-pieces{padding:1.8rem;border-radius:16px;border:1px solid var(--b);background:var(--panel)}
+.asm-pieces h3{font-family:var(--F);font-weight:700;font-size:1rem;color:var(--w);letter-spacing:-.03em;margin-bottom:.4rem}
+.asm-pieces p{font-size:.8rem;color:var(--mu);margin-bottom:1.4rem}
+.pieces-grid{display:flex;flex-direction:column;gap:.7rem}
+.piece{padding:.9rem 1.1rem;border-radius:10px;border:2px solid var(--b);background:rgba(16,25,20,.8);cursor:grab;transition:all .2s;font-family:var(--M);font-size:.78rem;color:var(--t);display:flex;align-items:center;gap:.7rem;user-select:none}
+.piece:hover,.piece.dragging{transform:scale(1.02);box-shadow:0 6px 20px rgba(74,222,128,.15);border-color:var(--b2);cursor:grabbing}
+.piece.used{opacity:.35;cursor:not-allowed}
+.piece-ico{font-size:1.1rem;flex-shrink:0}
+.piece-name{font-weight:500;font-size:.8rem}
+.piece-hint{font-size:.68rem;color:var(--mu)}
+
+
+
+
+
+
+
+
+
 
 
 
