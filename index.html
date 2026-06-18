@@ -297,30 +297,30 @@ input[type=range].pr::-webkit-slider-thumb:active{transform:scale(1.2)}
 .qs-label{font-size:1.1rem;color:var(--t2);margin-bottom:2rem}
 .qs-msg{font-size:.95rem;color:var(--mu);max-width:480px;margin:0 auto 2rem;line-height:1.7}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#timeline{padding:7rem 0;background:var(--bg);border-top:1px solid var(--b)}
+.tl-outer{margin-top:3rem;position:relative}
+.tl-outer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linera-gradient(180deg,var(--g),var(--g2),var(--am));opacity:.2;transform:translateX(-50%)}
+@media(max-width:700px){.tl-outer::before{left:20px}}
+.tl-item{display:grid;grid-template-columns:1fr 60px 1fr;align-items:start;margin-bottom:3rem;cursor:none}
+@media(max-width:700px){.tl-item{grid-template-columns:40px 1fr;gap:0}}
+.tl-item:nth-child(even) .tl-left{order:3}
+.tl-item:nth-child(even) .tl-right{order:1}
+.tl-item:nth-child(even) .tl-mid{order:2}
+@media(max-width:700px){.tl-item:nth-child(even) .tl-left,.tl-item:nth-child(even) .tl-right,.tl-item:nth-child(even) .tl-mid{order:unset}}
+.tl-left{padding-right:2rem;text-align:right}
+.tl-right{padding-left:2rem}
+@media(max-width:700px){.tl-left{display:none}.tl-right{padding-left:1rem}}
+.tl-item:nth-child(even) .tl-left{text-align:left;padding-right:0;padding-left:2rem}
+.tl-item:nth-child(even) .tl-right{padding-left:0;padding-right:2rem;text-align:right}
+@media(max-width:700px){.tl-item:nth-child(even) .tl-right{padding-right:0;text-align:left}}
+.tl-mid{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.tl-dot{width:40px;height:40px;border-radius:50%;border:2px solid var(--b2);background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s;flex-shrink:0;z-index:1}
+.tl-item:hover .tl-dot{border-color:var(--g);box-shadow:0 0 20px rgba(74,222,128,.25);transform:scale(1.1)}
+.tl-card{padding:1.5rem;border-radius:14px;border:1px solid var(--b);background:rgba(16,25,10,.8);transition:all .25s;text-align:left}
+.tl-card:hover{border-color:var(--b2);transform:scale(1.02)}
+.tl-date{font-family:var(--M);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-bottom:.4rem}
+.tl-title{font-family:var(--F);font-weight:700;font-size:1rem;color:var(--w);letter-spacing:-.03em;margin-bottom:.4rem}
+.tl-desc{font-size:.82rem;color:var(--mu);line-height:1.6}
 
 
 
