@@ -243,24 +243,25 @@ input[type=range].cr::-webkit-slider-thumb:active{transform:scale(1.25)}
 .iff.w strong{color:#fde047}
 .iarrow{text-align:center;font-size:1.6rem;color:var(--mu);opacity:.4}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#simulator{padding:7rem 0;background:var(--bg);border-top:1px solid var(--b)}
+.sim-g{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;margin-top:3rem}
+@media(max-width:900px){.sim-g{grid-template-columns:1fr}}
+.dbtns{display:flex;gap:.45rem;margin-bottom:1.8rem;flex-wrap:wrap}
+.db{flex:1;min-width:65px;padding:.55rem .4rem;border-radius:9px;border:1px solid var(--b);background:transparent;cursor:none;font-family:var(--M);font-size:.7rem;color:var(--mu);transition:all .2s;text-align:center;line-height:1.3}
+.db.on,.db:hover{background:rgba(74,222,128,.08);border-color:var(--g);color:var(--g)}
+.slg{margin-bottom:1.8rem}
+.sll{display:flex;justify-content:space-between;font-family:var(--M);font-size:.76rem;color:var(--mu);margin-bottom:.65rem}
+.sll strong{color:var(--g);font-size:1.1rem}
+input[typ=range].pr{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;outline:none;cursor:none;margin-bottom:.35rem}
+input[type=range].pr::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--w);box-shadow: 0 0 12px var(--g);cursor:none;transition:transform .12s}
+input[type=range].pr::-webkit-slider-thumb:active{transform:scale(1.2)}
+.slends{display:flex;justify-content:space-between;font-family:var(--M);font-size:.6rem;color:var(--mu)}
+.scard{padding:1.4rem;border-radius:16px;border:1px solid var(--b);background:var(--panel);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.sc-ico{font-size:2rem;margin-bottom:.65rem;line-height:1}
+.sc-tt{font-family:var(--F);font-weight:700;font-size:1.3rem;color:var(--w);letter-spacing:-.03em;margin-bottom:.35rem}
+.sc-ds{font-size:.83rem;line-height:1.62;color:var(--mu);margin-bottom:.9rem}
+.kid{display:flex;align-items:center;gap:.55rem;padding:.6rem .9rem;border-radius:9px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.12);font-size:.86rem;color:var(--t2);transition:all .4s}
+.kid strong{color:var(--g)}
 
 
 
