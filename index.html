@@ -600,6 +600,32 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
     </div>
 </section>
 
-
+<section id="calculator">
+    <div class="C">
+        <div class="rv"><p class="sup">02 - Calculator interactiv</p>
+        <h2 class="T">Calculează<br><span class="a2">impactul real</span></h2>
+        <p class="sub">Ajustează parametrii și vezi diferența reală dintre ECO-SENSE și ambalajele din plastic convențional.</p></div>
+        <div class="calc-wrap rv d1">
+            <div class="calc-panel">
+                <div class="title">Parametri producție</div>
+                <div class="calc-sub">Trage sliderele pentru a calcula impactul la scara dorită</div>
+                <div class="calc-row">
+                    <div class="calc-lbl"><span>Număr ambalaje / zi</span><strong id="cAmb">1,000</strong></div>
+                    <input type="range" class="cr" id="cRng2" min="1" max="20" value="1" style="background:linear-gradient(90deg,var(--g2),var(--am))" oninput="calcUpdate()"/>
+                </div>
+                <div class="calc-row">
+                    <div class="calc-lbl"><span>Rată reciclare PET (estimat)</span><strong id="cRec">20%</strong></div>
+                    <input type="range" class="cr" id="cRng3" min="5" max="60" value="20" style="background:linear-gradient(90deg,var(--am),var(--g))" oninput="calcUpdate()"/>
+                </div>
+                <div class="calc-compare" id="calcComp">
+                    <div style="font-family:var(--M);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-bottom:.8rem">Cost total comparativ</div>
+                    <div class="cc-bar pet-bar" id="petCostBar">PET total: calculez...</div>
+                    <div class="cc-bar eco-bar" id="ecoCostBar">ECO-SENSE: calculez...</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
 
