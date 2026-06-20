@@ -704,7 +704,28 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
             </div>
         </div>
 
-        
+        <div class="m3d-wrap rv d2">
+            <div class="m3d-head">
+                <div>
+                    <h3>Model 3D - rotește straturile cu mâna 🖐</h3>
+                    <p>Cele 3 straturi (extern · activ · intern) ca model 3D cu peretele decupat. Activează camera și mișcă mâna în fața ei ca să-l rotești - sau trage cu mouse-ul.</p>
+                </div>
+                <button class="btn btn-g" id="m3dCamBtn">🎥 Activează camera</button>
+            </div>
+            <div class="m3d-grid">
+                <div class="m3d-stage" id="m3dStage">
+                    <div class="m3d-hint">trage cu mouse-ul · sau mișcă mâna în fața camerei</div>
+                </div>
+                <div class="m3d-side">
+                    <div class="m3d-cam">
+                        <video id="m3dVideo" playsinline muted></video>
+                        <canvas id="m3dOverlay"></canvas>
+                        <div class="camoff" id="m3dCamOff">🎥<br>Cameră oprită<br><span style="opacity:.6">apasă „Activează camera"</span></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
