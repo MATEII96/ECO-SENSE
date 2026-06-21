@@ -829,12 +829,20 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
                 <div class="quiz-opts" id="qOpts"></div>
                 <div class="quiz-feedback" id="qFB"></div>
                 <div class="quiz-nav">
-                    
+                    <span class="quiz-counter" id="qCnt"></span>
+                    <button class="btn btn-g" id="qNext" onclick="qNext()" style="display:none">Următoarea →</button>
                 </div>
+            </div>
+            <div class="quiz-score" id="quizScore">
+                <div class="qs-num" id="qsNum">0/6</div>
+                <div class="qs-label" id="qsLbl">Se calculează...</div>
+                <div class="qs-msg" id="qsMsg"></div>
+                <button class="btn btn-g" onclick="qRestart()">↺ Încearcă din nou</button>
             </div>
         </div>
     </div>
 </section>
+
 
 
 
