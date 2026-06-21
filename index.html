@@ -759,5 +759,46 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
     </div>
 </section>
 
+<section id="simulator">
+    <div class="C">
+        <div class="rv"><p class="sup">06 - Simulator interactiv</p>
+        <h2 class="T">Testează indicatorul<br><span class="a2">de pH în timp real</span></h2>
+        <p class="sub">Selectează ziua sau mută slider-ul și urmărește cum reacționează spirulina. Animația moleculară arată H⁺ în exces.</p></div>
+        <div class="sim-g rv d1">
+            <div>
+                <div class="dbtns">
+                    <button class="db on" onclick="sDay(1,6.7)">Ziua 1<br><small>pH 6.7</small></button>
+                    <button class="db" onclick="sDay(3,6.2)">Ziua 3<br><small>pH 6.2</small></button>
+                    <button class="db" onclick="sDay(5,5.5)">Ziua 5<br><small>pH 5.5</small></button>
+                    <button class="db" onclick="sDay(7,4.8)">Ziua 7<br><small>pH 4.8</small></button>
+                </div>
+                <div class="slg">
+                    <div class="sll"><span>pH curent</span><strong id="phD">6.7</strong></div>
+                    <input type="range" class="pr" id="phR" min="40" max="70" value="67" style="background:linear-gradient(90deg,#ca8a04,#4ade80)" oninput="sUpd(this.value/10,true)"/>
+                    <div class="slends"><span>4.0 - acid (alterat)</span><span>7.0 - neutru(proaspăt)</span></div>
+                </div>
+                <div class="scard" id="sC">
+                    <div class="sc-ico" id="sI">🔵</div>
+                    <div class="sc-tt" id="sT">Lapte proaspăt</div>
+                    <div class="sc-ds" id="sDS">pH neutru (6.7). Ficocianina neafectată - structura electronică intactă.</div>
+                    <div class="kid" id="kB"><span>👦</span><span>Sticla e <strong id="kC">albastră</strong> → <span id="kA">BEA! 🥛</span></span></div>
+                </div>
+            </div>
+            <div class="sv">
+                <svg id="ssvg" viewBox="0 0 170 320" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 
 
