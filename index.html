@@ -1079,6 +1079,31 @@ const bobs=new IntersectionObserver(e=>{
 },{threshold:.3});
 const pb=document.getElementById('petB');if(pb)bobs.observe(pb);
 
+function calcUpdate(){
+    const amb=parseInt(document.getElementById('cRng1').value);
+    const ani=parseInt(document.getElementById('cRng2').value);
+    const rec=parseInt(document.getElementById('cRng3').value)/100;
+    document.getElementById('cAmb').textContent=amb.toLocalString('ro');
+    document.getElementById('cAni').textContent=ani;
+    document.getElementById('cRec').textContent=Math.round(rec*100)+'%';
+    const total=amb*356*ani;
+    const plasticPerBuc=0.025;
+    const plasticEvitat=total*plasticPerBuc;
+    const costEco=total*1.5;
+    const costPet=total*(0.75+3*(1-rec));
+    const economie=costPet-costEco;
+    document.getElementById('cv1').textContent=plasticEvitat.toLocaleString('ro',{maximumFractionDigits:0})+' kg';
+    document.getElementById('cv2').textContent=costEco.toLocaleString('ro',{maximumFractionDigits:0})+' lei';
+    document.getElementById('cv3').textContent=costPet.toLocaleString('ro',{maximumFractionDigits:0})+' lei';
+    document.getElementById('cv4').textContent=(economie>0?'+':'')+economie.toLocaleString('ro',{maximumFractionDigits:0})+' lei';
+    const maxC=Math.max(costEco,costPet);
+    document.getElementById('petCostBar').style.width=Math.max(10,(costPet/maxC*100))+'%';
+    document.getElementById('petCostBar').textContent='PET total: '+costPet.toLocaleString('ro',{maximumFracionDigits:0})+' lei';
+    document.getElementById('ecoCostBar').style.width=Math.max(10,(costEco/maxC*100))+'%';
+    document.getElementById('ecoCostBar').textContent='ECO-SENSE: '+costEco.toLocaleString('ro',{maximumFractionDigits:0})+' lei';
+}
+calcUpdate();
+
 
 
 
