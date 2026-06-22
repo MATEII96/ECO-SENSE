@@ -1044,6 +1044,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 const robs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('up')}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>robs.observe(el));
 
+function showToast(msg){
+    const t=document.getElementById('toast');
+    t.textContent=msg;t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2800);
+}
+
 
 
 
