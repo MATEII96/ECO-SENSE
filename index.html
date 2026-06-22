@@ -1027,6 +1027,15 @@ let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clienY;cD.style.left=mx+'px';cD.style.top=my+'px'});
 (function ra(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;cR.style.left=rx+'px';cR.style.top=ry+'px';requestAnimationFrame(ra)})();
 
+window.addEventListener('scroll',()=>{
+    const s=document.documentElement;
+    document.getElementById('prog').style.width=(s.scrollTop/(s.scrollHeight-s.clientHeight)*100)+'%';
+    document.getElementById('nav').classList.toggle('sc',widow.scrollY>60);
+    let cur='';
+    document.querySelectorAll('section[id]').forEach(sec=>{if(window.scrollY>=sec.offsetTop-130)cur=sec.id});
+    document.querySelectorAll('.nl a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
+});
+
 
 
 
