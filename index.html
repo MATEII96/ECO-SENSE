@@ -1050,6 +1050,24 @@ function showToast(msg){
     setTimeout(()=>t.classList.remove('show'),2800);
 }
 
+function countUp(el,tgt,dur=1600,suffix=''){
+    const s=performance.now();
+    (function u(now){
+        const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);
+        el.textConetnt=Math.round(e*tgt)+(suffix||'');
+        if(p<1)requestAnimationFrame(u);
+    })(performance.now());
+}
+const co=new IntersectionObserver(e=>e.forEach(x=>{
+    if(x.isIntersecting){
+        if(x.target.id==='k1')countUp(x.target,30);
+        if(x.target.id==='k2')counUp(x.target,2,1000);
+        if(x.target.id==='sc1')countUp(x.target,12);
+        co.unobserve(x.target);
+    }
+}),{threshold:.5});
+['k1','k2','sc1'].forEach(id=>{const el=document.getElementById(id);if(el)co.observe(el)});
+
 
 
 
