@@ -1068,6 +1068,17 @@ const co=new IntersectionObserver(e=>e.forEach(x=>{
 }),{threshold:.5});
 ['k1','k2','sc1'].forEach(id=>{const el=document.getElementById(id);if(el)co.observe(el)});
 
+const bobs=new IntersectionObserver(e=>{
+    if(e[0].isIntersecting){
+        setTimeout(()=>{
+            document.getElementById('pb1').style.width='15%';
+            document.getElementById('pb2').style.width='56%';
+            document.getElementById('pb3').style.width='34%';
+        },300);bobs.disconnect();
+    }
+},{threshold:.3});
+const pb=document.getElementById('petB');if(pb)bobs.observe(pb);
+
 
 
 
