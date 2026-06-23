@@ -1214,6 +1214,27 @@ const SS={
     '5.5':{tt:'Fermentare activă — Verifică!',ds:'pH acid (5.5). Ficocianina parțial protonată. Culoare verde-gălbuie.',i:'⚠️',c:'#65a30d',kc:'verde-gălbuie',ka:'VERIFICĂ urgent ⚠️',br:'rgba(101,163,13,.3)',bg:'rgba(101,163,13,.6)'},
     '4.8':{tt:'Lapte alterat — NU consuma!',ds:'pH acid (4.8). Ficocianina complet protonată. GALBEN = alterat, aruncă imediat!',i:'🟡',c:'#a8a04',kc:'GALBENĂ',ka:'ARUNCĂ! 🚫',br:'rgba(202,138,4,.4)',bg:'rgba(202,138,4,.08)'}
 };
+function phk(v){return v>=6.5?'6.7':v>=5.9?'6.2':v>=5.2?'5.5':'4.8'}
+function sUpd(v,fs){
+    v=Math.max(4.0,Math.min(7.0,+v));
+    document.getElementById('phD').textContent=v.toFixed(1);
+    const k=phk(v),S=SS[k];
+    document.getElementById('sB').style.fill=S.c;
+    document.getElementById('sGR').style.stroke=S.c;
+    document.getElementById('sI').textContent=S.i;
+    document.getElementById('sT').textContent=S.tt;
+    document.getElementById('sDS').textContent=S.ds;
+    document.getElementById('kC').textContent=S.kc;
+    document.getElementById('kA').textContent=S.ka;
+    const sc=document.getElementById('sC');sc.style.borderColor=S.br;sc.style.background=S.bg;
+    document.getElementById('ssvg').style.filter=`drop-shadow(0 8px 35px ${S.c}44)`;
+    const dm={'6.7':1,'6.2':3,'5.5':5,'4.8':7};
+    document.querySelectorAll('.db').forEach(b=>{b.classList.toggle('on',parseInt(b.textContent)===dm[k])});
+    if(!fs)document.getElementById('phR'),value=v*10;
+    drawMol(v);
+}
+function sDay(d,ph){sUpd(ph,false)}
+
 
 
 
