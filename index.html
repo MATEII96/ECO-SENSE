@@ -1252,11 +1252,22 @@ function drawMol(ph){
         ctx.clearRect(0,0,w,h);
         for(let i=0;i<mParticles.length;i++){
             for(let j=i+1;j<mParticles.length;j++){
-                
+                const d=Math.hypot(mParticles[i].x-mParticles[j].x,mParticles[i].y-mParticles[j].y);
+                if(d<55){ctx.strokeStyle=`hsla(${mParticles[i].hue},70%,60%,${(1-d/55)*.18})`;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(mParticles[i].x,mParticless[i].y);ctx.lineTo(mParticles[j].x,mParticles[j].y);ctx.stroke()}
             }
         }
+        mParticles.forEach(p=>{
+            p.x+=p.vx;p.y+=p.vy;
+            if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+            ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+            ctx.fillStyle=`hsla(${p.hue},75%,60%,${p.op})`;ctx.fill();
+            if(acid>0.4&&Math.random()<0.012){ctx.font=`${5+acid*4}px DM Mono,monospace`;ctx.fillStyle=`hsla(48,80%,65%,${acid*.55})`;ctx.fillText('H⁺',p.x+p.r+1,p.y-p.r)}
+        });
+        mAnim=requestAnimationFrame(frame);
     }
+    frame();
 }
+sUpd(6.7,true)
 
 
 
