@@ -1235,7 +1235,28 @@ function sUpd(v,fs){
 }
 function sDay(d,ph){sUpd(ph,false)}
 
-
+let mAnim,mParticles=[];
+function drawMol(ph){
+    const canvas=document.getElementById('mc'),ctx=canvas.getContext('2d');
+    const w=canvas.width,h=canvas.height;
+    if(mAnim)cancelAnimationFrame(mAnim);
+    const acid=(7-ph)/3;
+    mParticles=Array.from({length:16},()=>({
+        x:Math.random()*w,y:Math.random()*h,
+        vx:(Math.random()-.5)*(1+acid*2.5),vy:(Math.random()-.5)*(1+acid*2.5),
+        r:Math.random()*2.2+1.2,
+        hue:ph>=6.5?220:ph>=5.9?140:ph>=5.2?80:48,
+        op:.25+Math.random()*.4
+    }));
+    function frame(){
+        ctx.clearRect(0,0,w,h);
+        for(let i=0;i<mParticles.length;i++){
+            for(let j=i+1;j<mParticles.length;j++){
+                
+            }
+        }
+    }
+}
 
 
 
