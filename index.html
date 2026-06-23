@@ -1315,8 +1315,13 @@ function qEnd(){
     document.getElementById('qProg').style.width='100%';
     const pct=qScore/QS.length;
     const lbls=['Încearcă din nou! 💪','Bine! 👍','Foarte bine! 🌟','Excelent! 🏆'];
-    
+    document.getElementById('qsLbl').textContent=pct<.5?lbls[0]:pct<.7?lbls[1]:pct<1?lbls[2]:lbls[3];
+    const msgs={0:'Nu e nicio problemă! Recitește secțiunile și încearcă din nou.',4:'Cunoști bine proiectul! Revizuiește chimia pentru un scor perfect.',5:'Apropae perfect! O mică ajustare și vei ști totul.',6:'Cunoști ECO-SENSE de la A la Z! Succes la ONCS 2026! 🌿'};
+    document.getElementById('qsMsg').textContent=msgs[qScore]||'Bun rezultat! Recitește secțiunile pentru mai multe detalii.';
 }
+function qRestart(){qIdx=0;qScore=0;qAnswered=false;document.getElementById('quizGame').style.display='block';document.getElementById('quizScore').classList.remove('show');qLoad()}
+qLoad();
+
 
 
 
