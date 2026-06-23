@@ -1154,6 +1154,28 @@ function selL(id){
 }
 selL('ex');
 
+let draggingId=null;
+const correctMap={ext:['amidon','glicerina'],act:['alginat','spirulina','cacl2'],int:['ceara']};
+const placed={};
+
+function asmInit(){
+    document.querySelectorAll('.piece').forEach(p=>{
+        p.addEventListener('dragstart',e=>{dragging=p.dataset.id;p.classList.add('dragging');e.dataTransfer.effectAllowed='move'});
+        p.addEventListener('dragend',()=>p.classList.remove('dragging'));
+    });
+    document.querySelectorAll('.dzone').forEach(z=>{
+        z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('over')});
+        z.addEventListener('dragleave',()=>z.classList.remove('over'));
+        z.addEventListener('drop'),e=>{
+            e.preventDefault();z.classList.remove('over');
+            if(!draggingId)return;
+            const piece=document.getElementById('p_'+draggingId);
+            if(piece.classList.contains('used'))return;
+            const layer=z.dataset.layer;
+            
+        }
+    })
+}
 
 
 
