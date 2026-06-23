@@ -1353,6 +1353,13 @@ new Chart(document.getElementById('phCh').getContext('2d'),{
     options:{responsive:true,scales:{x:{...CD.scales.x,title:{display:true,text:'Ziua de experiment',color:'#3d6b4f',font:{size:10}}},y:{...CD.scales.y,min:4.2,max:7.2,ticks:{...CD.scales.y.ticks,callback:v=>'pH '+v.toFixed(1)},title:{display:true,text:'pH',color:'#3d6b4f',font:{size:10}}}},plugins:{...CD.plugins,tooltip:{...CD.plugins.tooltip,callbacks:{label:c=>' pH: '+c.parsed.y.toFixed(1)}}}}
 });
 
+document.querySelectorAll('.sdot').forEach(d=>{
+    const baseOp=parseFloat(d.getAttribute('opacity')||.4);
+    let t=Math.random()*Math.PI*2;
+    (function a(){t+=0.025+Math.random()*0.01;d.setAttribute('opacity',(baseOp+Math.sin(t)*.15).toFixed(2));requestAnimationFrame(a)})();
+});
+
+
 
 
 
