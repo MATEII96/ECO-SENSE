@@ -1295,12 +1295,28 @@ function qLoad(){
             <span class="qopt-letter">${letters[i]}</span>${o}
         </button>`).join('');
 }
-
-
-
-
-
-
+function qAnswer(idx){
+    if(qAnswered)return;qAnswered=true;
+    const Q=QS[qIdx];const opts=document.querySelectorAll('.qopt');
+    opts.forEach(o=>o.disabled=true);
+    opts[idx].classList.add(idx===Q.ans?'correct':'wrong');
+    if(idx!==Q.ans)opts[Q.ans].classList.add('reveal');
+    if(idx===Q.ans)qScore++;
+    const fb=document.getElementById('qFB');
+    fb.textContent=(idx===Q.ans?'✓ Corect! ':'✗ Greșit! ')+Q.fb;
+    fb.className='quiz-feedback show '+(idx===Q.ans?'qf-ok':'qf-bad');
+    document.getElementById('qNext').style.display='inline-flex';
+}
+function qNext(){qIdx++;qLoad()}
+function qEnd(){
+    document.getElementById('quizGame').style.display='none';
+    const sc=document.getElementById('quizScore');sc.classList.add('show');
+    document.getElementById('qsNum').textContent=`${qScore}/${QS.length}`;
+    document.getElementById('qProg').style.width='100%';
+    const pct=qScore/QS.length;
+    const lbls=['Încearcă din nou! 💪','Bine! 👍','Foarte bine! 🌟','Excelent! 🏆'];
+    
+}
 
 
 
