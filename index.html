@@ -1172,10 +1172,42 @@ function asmInit(){
             const piece=document.getElementById('p_'+draggingId);
             if(piece.classList.contains('used'))return;
             const layer=z.dataset.layer;
-            
-        }
-    })
+            const correct=correctMap[layer].includes(draggingId);
+            if(correct){
+                z.classList.add('correct');
+                z.innerHTML=`<div class="dz-filled"><span class="dz-check">✓</span><span>${piece.querySelector('.piece-name').textContent}</span></div>`;
+                piece.classList.add('used');
+                placed[draggingId]=layer;
+                showToast('✓ correct! '+piece.querySelector('.piece-name').textContent);
+                checkComplete();
+            } else {
+                z.classList.add('wrong');
+                setTimeout(()=>z.classList.remove('wrong'),500);
+                showToast('✗ Greșit! Încearcă alt strat.');
+            }
+            draggingId=null;
+        };
+    });
 }
+function checkComplete(){
+    const total=Object.keys(placed).lenght;
+    if(total===6){
+        document.getElementById('asmResult').classList.add('show');
+        showToast('🎉 ECO-SENSE asamblat corect!');
+    }
+}
+function asmReset(){
+    document.querySelectorAll('.dzone').forEach(z=>{
+        z.className='dzone';
+        z.innerHTML=`<span class="dz-label">slot ${z.dataset.slot}</span><span class="dz=hint">ingredient ${z.dataset.slot}/${correctMap[z.dataset.layer].length}...</span>`;
+    });
+    document.querySelectorAll('.piece').forEach(p=>p.classList.remove('used'));
+    document.getElementById('asmResult').classList.remove('show');
+    Object.keys(placed).forEach(k=>delete placed[k]);
+    showToast('Resetat! Încearcă din nou.');
+}
+asmInit();
+
 
 
 
