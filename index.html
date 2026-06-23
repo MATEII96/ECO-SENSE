@@ -1342,10 +1342,17 @@ new Chart(document.getElementById('phCh').getContext('2d'),{
             borderColor:'#4ade80',
             backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,200);g.addColorStop(0,'rgba(74,222,128,.17)');g.addColorStop(1,'rgba(74,222,128,0)');return g},
             tension:.42,fill:true,poinRadius:6,pointHoverRadius:9,borderWidth:2.5,
-            pointBackgroundColor:['#1d4ed8','#1d4ed8','#16a34a']
+            pointBackgroundColor:['#1d4ed8','#1d4ed8','#16a34a','#16a34a','65a30d','#ca8a04','#ca8a04'],
+            pointBorderColor:'rgba(0,0,0,0)'
+        },{
+            label:'Prag alterare (pH 5.5)',
+            data:[5.5,5.5,5.5,5.5,5.5,5.5,5.5],
+            borderColor:'rgba(234,179,8,.38)',borderDash:[6.4],borderWidth:1.5,pointRadius:0,fill:false,backgroundColor:'transparent'
         }]
-    }
-})
+    },
+    options:{responsive:true,scales:{x:{...CD.scales.x,title:{display:true,text:'Ziua de experiment',color:'#3d6b4f',font:{size:10}}},y:{...CD.scales.y,min:4.2,max:7.2,ticks:{...CD.scales.y.ticks,callback:v=>'pH '+v.toFixed(1)},title:{display:true,text:'pH',color:'#3d6b4f',font:{size:10}}}},plugins:{...CD.plugins,tooltip:{...CD.plugins.tooltip,callbacks:{label:c=>' pH: '+c.parsed.y.toFixed(1)}}}}
+});
+
 
 
 
