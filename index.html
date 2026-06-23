@@ -1133,6 +1133,26 @@ const LD={
         hly:218,hlh:65
     }
 };
+function selL(id){
+    const L=LD[id];
+    document.querySelectorAll('.ltab').forEach(t=>{t.classList.remove('on');if(t.classList.contains(id))t.classList.add('on')});
+    const card=document.getElementById('lcard');card.className='lcard'+L.cc;
+    const b=document.getElementById('lbadge');b.className='lbadge'+L.bc;b.textContent=L.badge;
+    document.getElementById('lname').textContent=L.name;
+    document.getElementById('lingr').innerHTML=L.ingrs.map(i=>`<span class="it">${i}</span>`).join('');
+    document.getElementById('ldesc').innerHTML=L.desc;
+    let ch='';for(let i=0;i<L.chem.length;i+=2)ch+=`<div class="formula ${L.chem[i]}">${L.chem[i+1]}</div>`;
+    document.getElementById('lchem').innerHTML=ch;
+    const k=document.getElementById('lkey');k.className='lkey '+L.kc;k.textContent=L.kt;
+    const hl=document.getElementById('xsHL');
+    hl.setAttribute('y',L.hly);hl.setAttribute('height',L.hlh);hl.style.opacity='1';
+    ['xsEr','xsAr','xsIr'].forEach(rid=>{
+        const r=document.getElementById(rid);
+        if(r)r.style.opacity=(rid='xs'+id[0].toUpperCase()+'r')||rid===`xs${id==='ex'?'E':id==='ac'?'A':'I'}r`?'1':'0.4';
+    });
+    showToast('Strat selectat: '+L.name.split(' ')[0]+' '+L.name.split(' ')[1]);
+}
+selL('ex');
 
 
 
