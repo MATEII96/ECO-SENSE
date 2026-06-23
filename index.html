@@ -1324,9 +1324,15 @@ qLoad();
 
 const CD={
     scales:{
-        
+        x:{grid:{color:'rgba(74,222,128,.05)'},ticks:{color:'#3d6b4f',font:{family:'DM Mono',size:10}}},
+        y:{grid:{color:'rgba(74,222,128,.05)'},ticks:{color:'#3d6b4f',font:{family:'DM Mono',size:10}}}
+    },
+    plugins:{
+        legend:{labels:{color:'#86efac',font:{family:'Outfit',size:11},boxWidth:14,padding:16}},
+        tooltip:{backgroundColor:'rgba(5,46,22,.95)',borderColor:'rgba(74,222,128,.2)',borderWidth:1,titleColor:'#d1fae5',bodyColor:'#86efac',titleFont:{family:'Fraunces',size:12},bodyFont:{family:'DM Mono',size:10},padding:10}
     }
-}
+};
+
 
 
 
