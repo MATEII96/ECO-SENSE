@@ -13,7 +13,7 @@ This website wants to promote the bottle with an interactive website with inform
 
 I also participated at a national olympiad with this product even working in reality and the jury was very intrested in my idea.
 
-I also have the EcoBot:a chatbot trained with our datas refered to this bottle.so when you have a curiosity check the EcoBot.
+I also have the EcoBot:a chatbot trained with project's datas refered to this bottle.so when you have a curiosity check the EcoBot.
 
 I made a 3d model with every layer that you can rotate by activating the camera and it tracks the hand, so by this it rotates the 3d model.
 

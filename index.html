@@ -1446,8 +1446,23 @@ document.querySelectorAll('.sdot').forEach(d=>{
             camera=new Camera(video,{onFrame:async()=>{await hands.send({image:video});},width:480,height:360});
             await camera.start();
             running=true;camoff.style.display='none';btn.textContent='⏹ Oprește camera';
-            
+            setStatus('Mișcă mâna stânga ⇄ dreapta ca să rotești 🖐','#4ade80');
+        }catch(err){
+            setStatus('Camera nu a putut porni: '+((err&&err.message)||err),'#f87171');
+            running=false;
         }
+    }
+    function stop(){
+        running=false;
+        if(camera&&camera.stop)camera.stop();
+        if(video.srcObject){video.srcObject.getTracks().forEach(t=>t.stop());video.srcObject=null;}
+        octx.clearRect(0,0,overlay.width,overlay.height);
+        camoff.style.display='flex';btn.textContent='🎥 Activează camera';
+        setStatus('Cameră oprită — poți roti și cu mouse-ul.','#3d6b4f');
+        if(window.__m3dAutoSpin)window.__m3dAutoSpin();
+    }
+    function onResults(res){
+        overlay.width=video.videoWidth
     }
 })
 
