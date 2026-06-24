@@ -1462,9 +1462,21 @@ document.querySelectorAll('.sdot').forEach(d=>{
         if(window.__m3dAutoSpin)window.__m3dAutoSpin();
     }
     function onResults(res){
-        overlay.width=video.videoWidth
+        overlay.width=video.videoWidth||480;overlay.height=video.videoHeight||360;
+        octx.clearRect(0,0,overlay.width,overlay.height);
+        if(res.multiHandLandmarks&&res.multiHandLandmarks.length){
+            const lm=res.multiHandLandmarks[0];
+            if(window.drawConnectors&&window.HAND_CONNECTIONS){
+                drawConnectors(octx,lm,HAND_CONNECTIONS,{color:'rgba(74,222,128,.75)',lineWidth:2});
+                drawLandmarks(octx,lm,{color:'#22d3ee',lineWidth:1,radius:2.6});
+            }
+            if(window.__m3dSetHand)window.__m3dSetHand(1-lm[9].x,lm[9].y);
+        }
     }
-})
+    btn.addEventListener('click',start);
+})();
+
+
 
 
 
