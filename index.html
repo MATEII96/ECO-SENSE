@@ -1411,9 +1411,29 @@ document.querySelectorAll('.sdot').forEach(d=>{
     window.__m3dAutoSpin=function(){autoSpin=true;};
     function resize(){W=stage.clientWidth;H=stage.clientHeight;if(!W||!H)return;cam.aspect=W/H;cam.updateProjectionMatrix();render.setSize(W,H);}
     window.addEventListener('resize',resize);setTimeout(resize,60);
+    (function loop(){
+        requestAnimationFrame(loop);
+        if(autoSpin)targetRY+=0.004;
+        curRY+=(targetRY-curRY)*0.12;
+        curRX+=(targetRX-curRX)*0.12;
+        group.rotation.y=curRY;group.rotation.x=curRX;
+        renderer.render(scene,cam);
+    })();
+})();
+
+(function(){
+    const btn=document.getElementById('m3dCamBtn');
+    if(!btn)return;
+    const video=document.getElementById('m3dVideo');
+    const overlay=document.getElementById('m3dOverlay');
+    const camoff=document.getElementById('m3dCamOff');
+    const status=document.getElementById('m3dStatus');
+    const octx=overlay.getContent('2d');
+    let hands=null,camera=null,running=false;
+
+    function setStatus(t,c){status.textContent=t;if(c)status.style.color=c;}
 
     
-
 })
 
 
