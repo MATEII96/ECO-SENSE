@@ -1379,7 +1379,26 @@ document.querySelectorAll('.sdot').forEach(d=>{
 
     const group=new THREE.Group();scene.add(group);
 
-    
+    const Hc=3.0, gap=Math.PI*0.42;
+    const radii=[1.35,1.12,0.9,0.66];
+    const cols =[0xfbbf24,0x4ade80,0x22d3ee];
+    const ops  =[0.55,0.6,0.62];
+
+    for(let i=0;i<3;i++){
+        const geo=new THREE.CylinderGeometry(radii[i],radii[i],Hc,72,1,true,gap,Math.PI*2-gap);
+        const mat=new THREE.MeshStandardMaterial({color:cols[i],transparent:true,opacity:ops[i],slide:THREE.DoubleSide,metalness:.1,roughness:.45,emissive:cols[i],emissiveIntensity:.14});
+        group.add(new THREE.Mesh(geo,mat));
+    }
+    function ring(rOut,rIn,y,col,op){
+        const g=new THREE.RingGeometry(rIn,rOut,72,1,gap,Math.PI*2-gap);
+        const m=new THREE.MeshStandardMaterial({color:col,transparent:true,opacity:op,side:THREE.DoubleSide,emissive:col,emissiveIntensity:.2});
+        const mesh=new THREE.Mesh(g,m);mesh.rotation.x=-Math.PI/2;mesh.position.y=y;group.add(mesh);
+    }
+    for (let i=0;i<3;i++){ring(radii[i],radii[i+1],Hc/2,cols[i],.72);ring(radii[i],radii[i+1],-Hc/2,cols[i],.5);}
+    const cap=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.5,0.45,32),new THREE.MeshStandMaterial({color:0x92400e,roughness:.65}));
+    cap.position.y=Hc/2+0.34;group.add(cap);
+    let targetRY=0,targetRX=-0.18
+
 })
 
 
