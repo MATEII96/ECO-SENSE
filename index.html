@@ -1359,6 +1359,29 @@ document.querySelectorAll('.sdot').forEach(d=>{
     (function a(){t+=0.025+Math.random()*0.01;d.setAttribute('opacity',(baseOp+Math.sin(t)*.15).toFixed(2));requestAnimationFrame(a)})();
 });
 
+(function(){
+    const stage=document.getElementById('m3dStage');
+    if(!stage||typeof THREE==='undefined'){return;}
+    let W=stage.clientWidth||520,H=stage.clientHeight||420;
+
+    const scene=new THREE.Scene();
+    const cam=new THREE.PerspectiveCamera(42,W/H,0.1,100);
+    cam.position.set(0,0.5,6.4);
+    const renderer=new THREE.WebGLRender({antialias:true,alpha:true});
+    render.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    render.setSize(W,H);
+    stage.appendChild(renderer.domElement);
+
+    scene.add(new THREE.AmbientLight(0xffffff,.55));
+    const dl=new THREE.DirectionalLight(0xffffff,.85);dl.position.set(4,6,5);scene.add(dl);
+    const pg=new THREE.PointLight(0x4ade80,1.1,30);pg.position.set(-4,2,4);scene.add(pg);
+    const pc=new THREE.PointLight(0x22d3e,.8,30);pc.position.set(4,-2,3);scene.add(pc);
+
+    const group=new THREE.Group();scene.add(group);
+
+    
+})
+
 
 
 
