@@ -1476,6 +1476,26 @@ document.querySelectorAll('.sdot').forEach(d=>{
     btn.addEventListener('click',start);
 })();
 
+(function(){
+    const $body=document.getElementById('cbBody'),
+          $chips=document.getElementById('cbChips'),
+          $input=document.getElementById('cbInput'),
+          $send=document.getElementById('cbSend'),
+          $btn=document.getElementById('cbBtn'),
+          $panel=document.getElementById('cbPanel');
+    let opened=false, firstOpen=true;
+
+    const norm=s=>s.toLowerCase()
+    .replace(/ă|â/g,'a').replace(/î/g,'i').replace(/ș|ș/g,'s').replace(/ț|ț/g,'t')
+    .replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g,' ').trim();
+
+    const KB=[
+        {id:'ce-este',kw:['ce este','ce e','eco sense','ecosense','proiect','prezinta','prezentare','rezumat'],
+         src:'Rezumat · Cap. I',
+         a:`<strong>ECO-SENSE</strong> este un <em>ambalaj biodegradabil inteligent</em> care poate îlocui sticlele de plastic (PET). Are două superputeri:<ul><li>🌍 e <strong>complet natural și `
+        }
+    ]
+})
 
 
 
