@@ -18,6 +18,6 @@ I also have the EcoBot:a chatbot trained with project's datas refered to this bo
 I made a 3d model with every layer that you can rotate by activating the camera and it tracks the hand, so by this it rotates the 3d model.
 
 
-# Technical information:
+## Technical information:
 The website is made in CSS,HTML and Java Script.
 Mediapipe for 3d model.
