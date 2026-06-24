@@ -1433,7 +1433,22 @@ document.querySelectorAll('.sdot').forEach(d=>{
 
     function setStatus(t,c){status.textContent=t;if(c)status.style.color=c;}
 
-    
+    async function start(){
+        if(running){stop();return;}
+        if(typeof Hands==='undefined'||typeof Camera==='undefined'){
+            setStatus('Biblioteca MediaPipe nu s-a încărcat (verifică conexiunea la internet).','#f87171');return;
+        }
+        setStatus('Se pornește camera…','#fbbf24');
+        try{
+            hands=new Hands({locateFile:f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}`});
+            hands.setOptions({maxNumHands:1,modelComplexity:0,minDetectionConfidence:.6,minTrackingConfidence:.5});
+            hands.onResults(onResults);
+            camera=new Camera(video,{onFrame:async()=>{await hands.send({image:video});},width:480,height:360});
+            await camera.start();
+            running=true;camoff.style.display='none';btn.textContent='⏹ Oprește camera';
+            
+        }
+    }
 })
 
 
