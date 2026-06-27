@@ -1721,7 +1721,18 @@ document.querySelectorAll('.sdot').forEach(d=>{
         {id:'multumesc',kw:['multumesc','mersi','thanks','super','tare','misto','bravo','frumos'],
          src:'',
          a:'Cu plăcere! 😊 Mult succes la ONCS 2026! Dacă mai ai întrebări despre proiect, sunt aici. 🍀'},
-    ]
+    ];
+
+    const STOP=new Set(('si sa sau la de pe in un o el ea ce cu ca e este sunt imi iti poti poate '+
+        'spune spui sp.mi despre care cum mai vreau vrei tu eu asta asa dar din al ale lui se ne va '+
+        'mi te ti nu da fi fie foarte mult multe am ai are niste acel acea acest aceasta pentru prin'+
+        'dintre intre fara catre spre mie tine noi voi ei ele zi zici mei tau tot toate orice ceva'+
+        'face fac ar fost va fi cand unde cine oare chiar deci adica gen un una unei unui acel'+
+        'lucru lucruri parte despre vorbesti vorbim expilca explici detalii informatii info').split(' '));
+
+    function tokens(s){return norm(s).split(' ').filter(w=>w.length>=2 && !STOP.has(w));}
+
+    
 })
 
 
