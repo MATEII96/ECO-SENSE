@@ -1803,8 +1803,26 @@ document.querySelectorAll('.sdot').forEach(d=>{
     }
 
     function typing(){
-        
+        const d=document.createElement('div');
+        d.className='cbTyping';d.innerHTML='<span></span><span></span><span></span>';
+        $body.appendChild(d);$body.scrollTop=$body.scrollHeight;
+        return d;
     }
+
+    function ask(q){
+        if(!q.trim())return;
+        addMsg(q.replace(/</g,'&lt;'),'user');
+        $input.value='';
+        const t=typing();
+        const hit=findAnswer(q);
+        setTimeout(()=>{
+            t.remove();
+            if(hit) addMsg(hit.a,'bot',hit.src);
+            else addMsg(FALLBACK,'bot');
+        },420+Math.random()*350);
+    }
+
+    
 })
 
 
