@@ -1742,7 +1742,69 @@ document.querySelectorAll('.sdot').forEach(d=>{
         return 0;
     }
 
-    
+    function findAnswer(q){
+        const nq=' '+norm(q)+' ';
+        const qt=tokens(q);
+        let best=null,bestScore=0;
+        for(const item of KB){
+            let score=0;
+            for(const k of item.kw){
+                const nk=norm(k);
+                if(nk.includes(' ')){
+                    if(nq.includes(' '+nk+' ')) score+=nk.split(' ').length*4;
+                    else if(nq.includes(nk)) score+=nk.split(' ').length*2.5;
+                } else if(nq.includes(' '+nk+' ')){
+                    score+=3;
+                }
+                const kt=nk.split(' ');
+                for(const a of qt) for(const b of kt) score+=wMatch(a,b);
+            }
+            if(score>bestScore){bestScore=score;best=item;}
+        }
+        return bestScore>=2?best:null;
+    }
+
+    const FALLBACK=`Hmm, nu sunt sigur că am înțeles 🤔 Sunt antrenat pe documentația ECO-SENSE. Pot răspunde despre:<ul><li>cele 3 straturi și rolul lor</li><li>spirulina și indicatorul de pH</li><li>chimie (reticulare egg-box, schimb ionic)</li><li>Producție, costuri și biodegradare</li><li>echipă și rezultate</li></ul>Încearcă să reformulezi sau apasă pe o sugestie de mai jos 👇`;
+
+    const CHIPS=[
+        {t:'Ce este ECO-SENSE?',q:'ce este eco-sense'},
+        {t:'Cum funcționează?',q:'cum functioneaza mecanism'},
+        {t:'Ce înseamnă culorile?',q:'ce inseamna culorile'},
+        {t:'De ce spirulină?',q:'de ce spirulina'},
+        {t:'Cele 3 straturi',q:'cele 3 straturi'},
+        {t:'Reticularea egg-box',q:'reticulare egg-box'},
+        {t:'Cifre poluare plastic',q:'statistici microplastice plastic'},
+        {t:'Cifre risipă alimentară',q:'statistici risipa alimentara'},
+        {t:'Care sunt limitele?',q:'care sunt limitele dezavantaje'},
+        {t:'E sigur / nontoxic?',q:'e sigur sanatate toxic'},
+        {t:'Cât costă?',q:'cat costa'},
+        {t:'Pași viitori',q:'planuri viitor imbunatatiri'},
+        {t:'De ce ați testat pe lapte?','de ce lapte'},
+        {t:'Cine sunt autorii?',q:'cine sunt autorii'},
+    ];
+
+    function renderChips(){
+        $chips.innerHTML='';
+        CHIPS.forEach(c=>{
+            const b=document.createElement('button');
+            b.className='cbChip';b.textContent=c.t;
+            b.addEventListener('click',()=>{ask(c.q);});
+            $chips.appendChild(b);
+        });
+    }
+
+    function addMsg(html,who,src){
+        const d=document.createElement('div');
+        d.className='cbMsg'+who;
+        d.innerHTML=html+(src?`<div class="cbSrc">📄 ${src}</div>`:'');
+        $body.appendChild(d);
+        $body.scrollTop=$body.scrollHeight;
+        return d;
+    }
+
+    function typing(){
+        
+    }
 })
 
 
