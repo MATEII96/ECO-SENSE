@@ -252,7 +252,7 @@ input[type=range].cr::-webkit-slider-thumb:active{transform:scale(1.25)}
 .slg{margin-bottom:1.8rem}
 .sll{display:flex;justify-content:space-between;font-family:var(--M);font-size:.76rem;color:var(--mu);margin-bottom:.65rem}
 .sll strong{color:var(--g);font-size:1.1rem}
-input[typ=range].pr{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;outline:none;cursor:none;margin-bottom:.35rem}
+input[type=range].pr{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;outline:none;cursor:none;margin-bottom:.35rem}
 input[type=range].pr::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--w);box-shadow: 0 0 12px var(--g);cursor:none;transition:transform .12s}
 input[type=range].pr::-webkit-slider-thumb:active{transform:scale(1.2)}
 .slends{display:flex;justify-content:space-between;font-family:var(--M);font-size:.6rem;color:var(--mu)}
@@ -299,7 +299,7 @@ input[type=range].pr::-webkit-slider-thumb:active{transform:scale(1.2)}
 
 #timeline{padding:7rem 0;background:var(--bg);border-top:1px solid var(--b)}
 .tl-outer{margin-top:3rem;position:relative}
-.tl-outer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linera-gradient(180deg,var(--g),var(--g2),var(--am));opacity:.2;transform:translateX(-50%)}
+.tl-outer::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--g),var(--g2),var(--am));opacity:.2;transform:translateX(-50%)}
 @media(max-width:700px){.tl-outer::before{left:20px}}
 .tl-item{display:grid;grid-template-columns:1fr 60px 1fr;align-items:start;margin-bottom:3rem;cursor:none}
 @media(max-width:700px){.tl-item{grid-template-columns:40px 1fr;gap:0}}
@@ -531,7 +531,7 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
             <div class="kpi"><div class="kn" id="k1">0</div><div class="kl">zile durată de viață</div></div>
             <div class="kpi"><div class="kn">3</div><div class="kl">starturi biodegradabile</div></div>
             <div class="kpi"><div class="kn">+50%</div><div class="">față de prototipul inițial</div></div>
-            <div class="kpi"><div class="kn" id="k2">0<div class="kl">lei/buc industrial</div></div>
+            <div class="kpi"><div class="kn" id="k2">0</div><div class="kl">lei/buc industrial</div></div>
         </div>
     </div>
     <div class="h-r rv d2">
@@ -766,7 +766,7 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
                                 <span class="piece-ico">⚗️</span>
                                 <div><div class="piece-name">CaCl₂ alimentar</div><div class="piece-hint">Reticulare ionică</div></div>
                             </div>
-                            <div class="piece" draggable="true" data-id="ceara" data-target="p_ceara">
+                            <div class="piece" draggable="true" data-id="ceara" data-target="int" id="p_ceara">
                                 <span class="piece-ico">🍯</span>
                                 <div><div class="piece-name">Ceară de albine</div><div class="piece-hint">Hidrofobă, Van der Waals</div></div>
                             </div>
@@ -820,7 +820,7 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
         <div class="ibox rv d1">
             <div><div class="ib-l">Lapte proaspăt</div><div class="ib-t">Bogat în ioni Na⁺, K⁺. Schimb ionic cu alginatul de calciu → crește mobilitatea lanțurilor și permeabilitatea — spirulina poate sesiza pH-ul.</div><div class="iff">(-COO⁻)₂Ca²⁺ + 2Na⁺ + 2-COO⁻Na⁺ + Ca²⁺</div></div>
             <div class="iarrow">⇄</div>
-            <div><div class="ib-l">Lapte alterat — pH scade</div><div class="ib-t">Bacteriile produc acizi organici → pH sub 5.5 → ficocianina se protonează → culoarea devine GALBENĂ.</div><div class="iff w">-NH₂ + H⁺ → -NH₃⁺</div><strong>→ GALBEN  = Aruncă!</strong></div></div>
+            <div><div class="ib-l">Lapte alterat — pH scade</div><div class="ib-t">Bacteriile produc acizi organici → pH sub 5.5 → ficocianina se protonează → culoarea devine GALBENĂ.</div><div class="iff w">-NH₂ + H⁺ → -NH₃⁺</div><strong>→ GALBEN  = Aruncă!</strong></div>
         </div>
     </div>
 </section>
@@ -924,11 +924,11 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
             <div class="tl-item">
                 <div class="tl-left"></div>
                 <div class="tl-mid"><div class="tl-dot">🌊</div></div>
-                <div class="tl-right"><div class="tk-card"><div class="tl-date">Etapa 2 - Cercetare materiale</div><div class="tl-title">Alegerea alginatului</div><div class="tl-desc">Studiul alginatului de sodiu din alge brune. Proprietăți: biodegradabil, reticulabil cu Ca²⁺, permeabil controlat.</div></div></div>
+                <div class="tl-right"><div class="tl-card"><div class="tl-date">Etapa 2 - Cercetare materiale</div><div class="tl-title">Alegerea alginatului</div><div class="tl-desc">Studiul alginatului de sodiu din alge brune. Proprietăți: biodegradabil, reticulabil cu Ca²⁺, permeabil controlat.</div></div></div>
             </div>
 
             <div class="tl-item">
-                <div class="tl-left"><div class="tl-card"><div class="tl-date">Etapa 3 - Prototip #1</div><div class="tll-title">Alginat + Spirulină</div><div class="tl-desc">Prototipul inițial: alginat + spirulină. Problema: era casant și puțin rezistent. Durata de viață: ~14 zile.</div></div>
+                <div class="tl-left"><div class="tl-card"><div class="tl-date">Etapa 3 - Prototip #1</div><div class="tl-title">Alginat + Spirulină</div><div class="tl-desc">Prototipul inițial: alginat + spirulină. Problema: era casant și puțin rezistent. Durata de viață: ~14 zile.</div></div></div>
                 <div class="tl-mid"><div class="tl-dot">⚗️</div></div>
                 <div class="tl-right"></div>
             </div>
@@ -971,8 +971,8 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
                     <tbody>
                         <tr><td><strong style="color:var(--w)">1</strong></td><td><code class="ph">~6.7</code></td><td>Lapte proaspăt</td><td><div class="cdot"><div class="cdc" style="background:#3b82f6;box-shadow:0 0 7px #3b82f6"></div>Albastru</div></td><td><span class="rok">✅ Conusmă</span></td></tr>
                         <tr><td><strong style="color:var(--w)">3</strong></td><td><code class="ph">~6.2</code></td><td><div class="cdot"><div class="cdc" style="background:#22c55e;box-shadow:0 0 7px #22c5ee"></div>Verde</div></td><td><span class="rok">✅ Consumă</span></td></tr>
-                        <tr><td><strong style="color:var(--w)">5</strong></td><td><code class="ph">~5.5</code></td><td>Fermentare activă</td><td><div class="cdot"><div class="cdot"><div class="cdc" style="background:#a3e635;box-shadow:0 0 7px #a3e635"></div>Verde-gălbui</div></td><td><span class="rwn">⚠️ Verifică</span></td></tr>
-                        <tr><td><strong style="color:var(--w)">7</strong></td><td><code class="ph">~4.8</code></td><td>Lapte alterat</td><td><div class="cdot"><div class="cdc" style="background:#eab308;box-shadow:0 0 9px #eab308"></div>Galben</td><td><span class="rbd">🚫 Aruncă!</span></td></tr>
+                        <tr><td><strong style="color:var(--w)">5</strong></td><td><code class="ph">~5.5</code></td><td>Fermentare activă</td><td><div class="cdot"><div class="cdc" style="background:#a3e635;box-shadow:0 0 7px #a3e635"></div>Verde-gălbui</div></td><td><span class="rwn">⚠️ Verifică</span></td></tr>
+                        <tr><td><strong style="color:var(--w)">7</strong></td><td><code class="ph">~4.8</code></td><td>Lapte alterat</td><td><div class="cdot"><div class="cdc" style="background:#eab308;box-shadow:0 0 9px #eab308"></div>Galben</div></td><td><span class="rbd">🚫 Aruncă!</span></td></tr>
                     </tbody>
                 </table>
                 <div class="tnote">Schimbarea progresivă validează sensibilitatea ficocianinei. Corelația culoare–pH permite identificarea stării fără instrumente suplimentare.</div>
@@ -1354,6 +1354,24 @@ new Chart(document.getElementById('phCh').getContext('2d'),{
         }]
     },
     options:{responsive:true,scales:{x:{...CD.scales.x,title:{display:true,text:'Ziua de experiment',color:'#3d6b4f',font:{size:10}}},y:{...CD.scales.y,min:4.2,max:7.2,ticks:{...CD.scales.y.ticks,callback:v=>'pH '+v.toFixed(1)},title:{display:true,text:'pH',color:'#3d6b4f',font:{size:10}}}},plugins:{...CD.plugins,tooltip:{...CD.plugins.tooltip,callbacks:{label:c=>' pH: '+c.parsed.y.toFixed(1)}}}}
+});
+}
+
+if(typeof Chart!=='undefined' && document.getElementById('dgCh')){
+new Chart(document.getElementById('dgCh').getContext('2d'),{
+    type:'line',
+    data:{
+        labels:['Z0','Z5','Z10','Z15','Z20','Z25','Z30'],
+        datasets:[{
+            label:'Grad de degradare (%)',
+            data:[0,2,7,16,27,35,40],
+            borderColor:'#4ade80',
+            backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,180);g.addColorStop(0,'rgba(74,222,128,.22)');g.addColorStop(1,'rgba(74,222,128,0)');return g},
+            tension:.4,fill:true,pointRadius:5,pointHoverRadius:8,borderWidth:2.5,
+            pointBackgroundColor:'#a3e635',pointBorderColor:'rgba(0,0,0,0)'
+        }]
+    },
+    options:{responsive:true,scales:{x:{...CD.scales.x,title:{display:true,text:'Ziua',color:'#3d6b4f',font:{size:10}}},y:{...CD.scales.y,min:0,max:50,ticks:{...CD.scales.y.ticks,callback:v=>v+'%'},title:{display:true,text:'Degradare',color:'#3d6b4f',font:{size:10}}}},plugins:{...CD.plugins,tooltip:{...CD.plugins.tooltip,callbacks:{label:c=>' Degradare: '+c.parsed.y+'%'}}}}
 });
 }
 
