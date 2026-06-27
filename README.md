@@ -1,5 +1,5 @@
 # ECO SENSE
-## Demo: 
+## Demo: https://mateii96.github.io/ECO-SENSE/
 Hello!
 
 This website is about a natural bottle where you put milk and when the milk expires the bottle changes color from blue to yellow because of the pH changes.
@@ -19,6 +19,7 @@ I made a 3d model with every layer that you can rotate by activating the camera 
 
 ## Tutorial:
 For best experience I suggest you to translate the website from Romanian to English.
+Best optimized for desktop.
 To rotate the 3d model use the mouse or activate the camera and move your hand and you will see how the 3d model moves because I used mediapipe.
 
 
