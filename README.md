@@ -24,8 +24,13 @@ To rotate the 3d model use the mouse or activate the camera and move your hand a
 
 
 ## Technical information:
-The website is made in CSS,HTML and Java Script.
+The website is made in CSS,HTML and JavaScript.
 Mediapipe for 3d model.
+
+## Screenshots:
+![ECO-SENSE](screenshots/screenshot1.jpg)
+![3D model](screenshots/screenshot2.jpg)
+![Simulator](screenshots/screenshot3.jpg)
 
 ## AI use:
 AI used for debugging.
