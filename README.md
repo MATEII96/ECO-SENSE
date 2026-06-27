@@ -14,13 +14,13 @@ I made a 3d model with every layer that you can rotate by activating the camera 
 ## Every layer:
 -external layer.
 -active layer(medium layer).
--intern layer.
+-internal layer.
 
 ## Tutorial:
 For best experience I suggest you to translate the website from Romanian to English.
 Best optimized for desktop.
 To rotate the 3d model use the mouse or activate the camera and move your hand and you will see how the 3d model moves because I used mediapipe.
-The EcoBot is best optimized for Romanian.I suggest you to use the presets of the EcoBot because if you manually type a prompt it is very likely for the EcoBot to not understand the prompt. If you want to see how the ai works mannualy tiping check the "kw:[...]" part in index.html lines 1515-1545.
+The EcoBot is best optimized for Romanian.I suggest you to use the presets of the EcoBot because if you manually type a prompt it is very likely for the EcoBot to not understand the prompt. If you want to see how the ai works mannualy tiping check the "kw:[...]" part in index.html lines 1515-1543. Or search for "kw:" in index.html
 
 
 ## Technical information:
