@@ -1822,7 +1822,17 @@ document.querySelectorAll('.sdot').forEach(d=>{
         },420+Math.random()*350);
     }
 
-    
+    function openPanel(){
+        opened=true;$panel.classList.add('open');$btn.classList.add('open');
+        $panel.setAttribute('aria-hidden','false');
+        if(firstOpen){
+            firstOpen=false;
+            const t=typing();
+            setTimeout(()=>{t.remove();addMsg(`Salut! 👋 Sunt <strong>EcoBot</strong>, asistentul ECO-SENSE. Am fost antrenat pe documentația proiectului <em>plus cercetare științifică pe domeniile lui</em> (alginat, ficocianină, ambalaje bio, poluare, risipă alimentară). Pot răspunde și la întrebări grele de tip juriu. Cu ce te pot ajuta? 🌿`,'bot');},500);
+        }
+        setTimeout(()=>$input.focus(),300);
+    }
+    function
 })
 
 
