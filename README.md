@@ -28,3 +28,5 @@ Mediapipe for 3d model.
 
 ## AI use:
 AI used for debugging.
+
+#horizons
