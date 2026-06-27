@@ -438,7 +438,7 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
 #cbBtn.open .cbDot{display:none}
 
 #cbPanel{position:fixed;bottom:6.4rem;right:1.6rem;z-index:600;width:380px;max-width:calc(100vw - 2rem);height:calc(100vh - 9rem);background:var(--bg2);border:1px solid var(--b2);border-radius:20px;box-shadow:0 20px 70px rgba(0,0,0,.6);display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(20px) scale(.96);pointer-events:none;transition:opacity .28s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(20px)}
-#cbPanel.opent{opacity:1;transform:none;pointer-events:auto}
+#cbPanel.open{opacity:1;transform:none;pointer-events:auto}
 .cbHead{display:flex;align-items:center;gap:.7rem;padding:1rem 1.1rem;background:linear-gradient(135deg,rgba(74,222,128,.08),rgba(34,211,238,.05));border-bottom:1px solid var(--b)}
 .cbAv{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--g),var(--g2));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem}
 .cbHt h4{font-family:var(--F);font-weight:700;font-size:1rem;color:var(--w);line-height:1.1}
@@ -549,7 +549,7 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
                 <ellipse cx="125" cy="446" rx="66" ry="11" fill="rgba(0,0,0,.2)"/>
                 <rect x="92" y="-4" width="66" height="14" rx="5" fill="#b45309"/>
                 <rect x="99" y="-13" width="52" height="11" rx="4" fill="#92400e"/>
-                <path d="M85,62 Q81,44 77,26 L70,9 Q70,3 87,3 L163,3 Q180,3 180,9 L173,26 Q169,44 165,62 L165,400 Q165,424 125,428 Q85,424 85,400 Z" fill="url(#age)" opacity=".88"/>
+                <path d="M85,62 Q81,44 77,26 L70,9 Q70,3 87,3 L163,3 Q180,3 180,9 L173,26 Q169,44 165,62 L165,400 Q165,424 125,428 Q85,424 85,400 Z" fill="url(#ge)" opacity=".88"/>
                 <path d="M92,65 Q89,48 86,31 L80,14 L170,14 L164,31 Q161,48 158,65 L158,394 Q158,416 125,420 Q92,416 92,394 Z" fill="url(#ga)" opacity=".82" id="hBL"/>
                 <path d="M100,68 Q98,52 96,37 L90,18 L154,37 Q152,52 150,68 L150,387 Q150,408 125,412 Q100,408 100,387 Z" fill="url(#gi)" opacity=".6"/>
                 <path d="M100,68 Q98,52 96,37 L92,20 L132,20 L132,68 L129,180 L100,155 Z" fill="url(#gsh)"/>
@@ -642,7 +642,7 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
             <div>
                 <div class="ltabs">
                     <button class="ltab ex on" onclick="selL('ex')">S1 - Exterior</button>
-                    <button class="ltb ac" onclick="selL('ac')">S2 - Activ</button>
+                    <button class="ltab ac" onclick="selL('ac')">S2 - Activ</button>
                     <button class="ltab in" onclick="selL('in')">S3 - Interior</button>
                 </div>
                 <div class="lcard ex" id="lcard">
@@ -1024,13 +1024,13 @@ footer{padding:3rem;text-align:center;border-top:1px solid var(--b);background:v
 
 const cD=document.getElementById('cD'),cR=document.getElementById('cR');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clienY;cD.style.left=mx+'px';cD.style.top=my+'px'});
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.left=mx+'px';cD.style.top=my+'px'});
 (function ra(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;cR.style.left=rx+'px';cR.style.top=ry+'px';requestAnimationFrame(ra)})();
 
 window.addEventListener('scroll',()=>{
     const s=document.documentElement;
     document.getElementById('prog').style.width=(s.scrollTop/(s.scrollHeight-s.clientHeight)*100)+'%';
-    document.getElementById('nav').classList.toggle('sc',widow.scrollY>60);
+    document.getElementById('nav').classList.toggle('sc',window.scrollY>60);
     let cur='';
     document.querySelectorAll('section[id]').forEach(sec=>{if(window.scrollY>=sec.offsetTop-130)cur=sec.id});
     document.querySelectorAll('.nl a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
@@ -1054,14 +1054,14 @@ function countUp(el,tgt,dur=1600,suffix=''){
     const s=performance.now();
     (function u(now){
         const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);
-        el.textConetnt=Math.round(e*tgt)+(suffix||'');
+        el.textContent=Math.round(e*tgt)+(suffix||'');
         if(p<1)requestAnimationFrame(u);
     })(performance.now());
 }
 const co=new IntersectionObserver(e=>e.forEach(x=>{
     if(x.isIntersecting){
         if(x.target.id==='k1')countUp(x.target,30);
-        if(x.target.id==='k2')counUp(x.target,2,1000);
+        if(x.target.id==='k2')countUp(x.target,2,1000);
         if(x.target.id==='sc1')countUp(x.target,12);
         co.unobserve(x.target);
     }
@@ -1080,13 +1080,14 @@ const bobs=new IntersectionObserver(e=>{
 const pb=document.getElementById('petB');if(pb)bobs.observe(pb);
 
 function calcUpdate(){
-    const amb=parseInt(document.getElementById('cRng1').value);
-    const ani=parseInt(document.getElementById('cRng2').value);
-    const rec=parseInt(document.getElementById('cRng3').value)/100;
-    document.getElementById('cAmb').textContent=amb.toLocalString('ro');
-    document.getElementById('cAni').textContent=ani;
+    const ambEl=document.getElementById('cRng2');
+    const recEl=document.getElementById('cRng3');
+    if(!ambEl||!recEl)return;
+    const amb=parseInt(ambEl.value)*1000;
+    const rec=parseInt(recEl.value)/100;
+    document.getElementById('cAmb').textContent=amb.toLocaleString('ro');
     document.getElementById('cRec').textContent=Math.round(rec*100)+'%';
-    const total=amb*356*ani;
+    const total=amb*365;
     const plasticPerBuc=0.025;
     const plasticEvitat=total*plasticPerBuc;
     const costEco=total*1.5;
@@ -1098,7 +1099,7 @@ function calcUpdate(){
     document.getElementById('cv4').textContent=(economie>0?'+':'')+economie.toLocaleString('ro',{maximumFractionDigits:0})+' lei';
     const maxC=Math.max(costEco,costPet);
     document.getElementById('petCostBar').style.width=Math.max(10,(costPet/maxC*100))+'%';
-    document.getElementById('petCostBar').textContent='PET total: '+costPet.toLocaleString('ro',{maximumFracionDigits:0})+' lei';
+    document.getElementById('petCostBar').textContent='PET total: '+costPet.toLocaleString('ro',{maximumFractionDigits:0})+' lei';
     document.getElementById('ecoCostBar').style.width=Math.max(10,(costEco/maxC*100))+'%';
     document.getElementById('ecoCostBar').textContent='ECO-SENSE: '+costEco.toLocaleString('ro',{maximumFractionDigits:0})+' lei';
 }
@@ -1136,8 +1137,8 @@ const LD={
 function selL(id){
     const L=LD[id];
     document.querySelectorAll('.ltab').forEach(t=>{t.classList.remove('on');if(t.classList.contains(id))t.classList.add('on')});
-    const card=document.getElementById('lcard');card.className='lcard'+L.cc;
-    const b=document.getElementById('lbadge');b.className='lbadge'+L.bc;b.textContent=L.badge;
+    const card=document.getElementById('lcard');card.className='lcard '+L.cc;
+    const b=document.getElementById('lbadge');b.className='lbadge '+L.bc;b.textContent=L.badge;
     document.getElementById('lname').textContent=L.name;
     document.getElementById('lingr').innerHTML=L.ingrs.map(i=>`<span class="it">${i}</span>`).join('');
     document.getElementById('ldesc').innerHTML=L.desc;
@@ -1148,7 +1149,8 @@ function selL(id){
     hl.setAttribute('y',L.hly);hl.setAttribute('height',L.hlh);hl.style.opacity='1';
     ['xsEr','xsAr','xsIr'].forEach(rid=>{
         const r=document.getElementById(rid);
-        if(r)r.style.opacity=(rid='xs'+id[0].toUpperCase()+'r')||rid===`xs${id==='ex'?'E':id==='ac'?'A':'I'}r`?'1':'0.4';
+        const active='xs'+(id==='ex'?'E':id==='ac'?'A':'I')+'r';
+        if(r)r.style.opacity=rid===active?'1':'0.4';
     });
     showToast('Strat selectat: '+L.name.split(' ')[0]+' '+L.name.split(' ')[1]);
 }
@@ -1160,13 +1162,13 @@ const placed={};
 
 function asmInit(){
     document.querySelectorAll('.piece').forEach(p=>{
-        p.addEventListener('dragstart',e=>{dragging=p.dataset.id;p.classList.add('dragging');e.dataTransfer.effectAllowed='move'});
+        p.addEventListener('dragstart',e=>{draggingId=p.dataset.id;p.classList.add('dragging');e.dataTransfer.effectAllowed='move'});
         p.addEventListener('dragend',()=>p.classList.remove('dragging'));
     });
     document.querySelectorAll('.dzone').forEach(z=>{
         z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('over')});
         z.addEventListener('dragleave',()=>z.classList.remove('over'));
-        z.addEventListener('drop'),e=>{
+        z.addEventListener('drop',e=>{
             e.preventDefault();z.classList.remove('over');
             if(!draggingId)return;
             const piece=document.getElementById('p_'+draggingId);
@@ -1186,11 +1188,11 @@ function asmInit(){
                 showToast('✗ Greșit! Încearcă alt strat.');
             }
             draggingId=null;
-        };
+        });
     });
 }
 function checkComplete(){
-    const total=Object.keys(placed).lenght;
+    const total=Object.keys(placed).length;
     if(total===6){
         document.getElementById('asmResult').classList.add('show');
         showToast('🎉 ECO-SENSE asamblat corect!');
@@ -1199,7 +1201,7 @@ function checkComplete(){
 function asmReset(){
     document.querySelectorAll('.dzone').forEach(z=>{
         z.className='dzone';
-        z.innerHTML=`<span class="dz-label">slot ${z.dataset.slot}</span><span class="dz=hint">ingredient ${z.dataset.slot}/${correctMap[z.dataset.layer].length}...</span>`;
+        z.innerHTML=`<span class="dz-label">slot ${z.dataset.slot}</span><span class="dz-hint">ingredient ${z.dataset.slot}/${correctMap[z.dataset.layer].length}...</span>`;
     });
     document.querySelectorAll('.piece').forEach(p=>p.classList.remove('used'));
     document.getElementById('asmResult').classList.remove('show');
@@ -1212,7 +1214,7 @@ const SS={
     '6.7':{tt:'Lapte proaspăt',ds:'pH neutru (6.7). Ficocianina neafectată — structura electronică intactă. Culoarea albastră normală.',i:'🔵',c:'#1d4ed8',kc:'albastră',ka:'BEA! 🥛',br:'rgba(29,78,216,.28)',bg:'rgba(29,78,216,.06)'},
     '6.2':{tt:'Debut de degradare',ds:'pH ușor scăzut (6.2). Primele modificări chimice incipiente. Consumabil.',i:'🟢',c:'#16a34a',kc:'verde',ka:'mai bea, e ok 🥛',br:'rgba(22,163,74,.28)',bg:'rgba(22,163,74,.06)'},
     '5.5':{tt:'Fermentare activă — Verifică!',ds:'pH acid (5.5). Ficocianina parțial protonată. Culoare verde-gălbuie.',i:'⚠️',c:'#65a30d',kc:'verde-gălbuie',ka:'VERIFICĂ urgent ⚠️',br:'rgba(101,163,13,.3)',bg:'rgba(101,163,13,.6)'},
-    '4.8':{tt:'Lapte alterat — NU consuma!',ds:'pH acid (4.8). Ficocianina complet protonată. GALBEN = alterat, aruncă imediat!',i:'🟡',c:'#a8a04',kc:'GALBENĂ',ka:'ARUNCĂ! 🚫',br:'rgba(202,138,4,.4)',bg:'rgba(202,138,4,.08)'}
+    '4.8':{tt:'Lapte alterat — NU consuma!',ds:'pH acid (4.8). Ficocianina complet protonată. GALBEN = alterat, aruncă imediat!',i:'🟡',c:'#ca8a04',kc:'GALBENĂ',ka:'ARUNCĂ! 🚫',br:'rgba(202,138,4,.4)',bg:'rgba(202,138,4,.08)'}
 };
 function phk(v){return v>=6.5?'6.7':v>=5.9?'6.2':v>=5.2?'5.5':'4.8'}
 function sUpd(v,fs){
@@ -1230,14 +1232,14 @@ function sUpd(v,fs){
     document.getElementById('ssvg').style.filter=`drop-shadow(0 8px 35px ${S.c}44)`;
     const dm={'6.7':1,'6.2':3,'5.5':5,'4.8':7};
     document.querySelectorAll('.db').forEach(b=>{b.classList.toggle('on',parseInt(b.textContent)===dm[k])});
-    if(!fs)document.getElementById('phR'),value=v*10;
+    if(!fs)document.getElementById('phR').value=v*10;
     drawMol(v);
 }
 function sDay(d,ph){sUpd(ph,false)}
 
 let mAnim,mParticles=[];
 function drawMol(ph){
-    const canvas=document.getElementById('mc'),ctx=canvas.getContext('2d');
+    const canvas=document.getElementById('mC'),ctx=canvas.getContext('2d');
     const w=canvas.width,h=canvas.height;
     if(mAnim)cancelAnimationFrame(mAnim);
     const acid=(7-ph)/3;
@@ -1253,7 +1255,7 @@ function drawMol(ph){
         for(let i=0;i<mParticles.length;i++){
             for(let j=i+1;j<mParticles.length;j++){
                 const d=Math.hypot(mParticles[i].x-mParticles[j].x,mParticles[i].y-mParticles[j].y);
-                if(d<55){ctx.strokeStyle=`hsla(${mParticles[i].hue},70%,60%,${(1-d/55)*.18})`;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(mParticles[i].x,mParticless[i].y);ctx.lineTo(mParticles[j].x,mParticles[j].y);ctx.stroke()}
+                if(d<55){ctx.strokeStyle=`hsla(${mParticles[i].hue},70%,60%,${(1-d/55)*.18})`;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(mParticles[i].x,mParticles[i].y);ctx.lineTo(mParticles[j].x,mParticles[j].y);ctx.stroke()}
             }
         }
         mParticles.forEach(p=>{
@@ -1290,7 +1292,7 @@ function qLoad(){
     document.getElementById('qNext').style.display='none';
     qAnswered=false;
     const letters=['A','B','C','D'];
-    document.getElementById('qOpts').innerHTML=Q.opts.map((0,i)=>`
+    document.getElementById('qOpts').innerHTML=Q.opts.map((o,i)=>`
         <button class="qopt" onclick="qAnswer(${i})">
             <span class="qopt-letter">${letters[i]}</span>${o}
         </button>`).join('');
@@ -1332,6 +1334,7 @@ const CD={
         tooltip:{backgroundColor:'rgba(5,46,22,.95)',borderColor:'rgba(74,222,128,.2)',borderWidth:1,titleColor:'#d1fae5',bodyColor:'#86efac',titleFont:{family:'Fraunces',size:12},bodyFont:{family:'DM Mono',size:10},padding:10}
     }
 };
+if(typeof Chart!=='undefined' && document.getElementById('phCh')){
 new Chart(document.getElementById('phCh').getContext('2d'),{
     type:'line',
     data:{
@@ -1341,17 +1344,18 @@ new Chart(document.getElementById('phCh').getContext('2d'),{
             data:[6.7,6.5,6.2,5.9,5.5,5.1,4.8],
             borderColor:'#4ade80',
             backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,200);g.addColorStop(0,'rgba(74,222,128,.17)');g.addColorStop(1,'rgba(74,222,128,0)');return g},
-            tension:.42,fill:true,poinRadius:6,pointHoverRadius:9,borderWidth:2.5,
-            pointBackgroundColor:['#1d4ed8','#1d4ed8','#16a34a','#16a34a','65a30d','#ca8a04','#ca8a04'],
+            tension:.42,fill:true,pointRadius:6,pointHoverRadius:9,borderWidth:2.5,
+            pointBackgroundColor:['#1d4ed8','#1d4ed8','#16a34a','#16a34a','#65a30d','#ca8a04','#ca8a04'],
             pointBorderColor:'rgba(0,0,0,0)'
         },{
             label:'Prag alterare (pH 5.5)',
             data:[5.5,5.5,5.5,5.5,5.5,5.5,5.5],
-            borderColor:'rgba(234,179,8,.38)',borderDash:[6.4],borderWidth:1.5,pointRadius:0,fill:false,backgroundColor:'transparent'
+            borderColor:'rgba(234,179,8,.38)',borderDash:[6,4],borderWidth:1.5,pointRadius:0,fill:false,backgroundColor:'transparent'
         }]
     },
     options:{responsive:true,scales:{x:{...CD.scales.x,title:{display:true,text:'Ziua de experiment',color:'#3d6b4f',font:{size:10}}},y:{...CD.scales.y,min:4.2,max:7.2,ticks:{...CD.scales.y.ticks,callback:v=>'pH '+v.toFixed(1)},title:{display:true,text:'pH',color:'#3d6b4f',font:{size:10}}}},plugins:{...CD.plugins,tooltip:{...CD.plugins.tooltip,callbacks:{label:c=>' pH: '+c.parsed.y.toFixed(1)}}}}
 });
+}
 
 document.querySelectorAll('.sdot').forEach(d=>{
     const baseOp=parseFloat(d.getAttribute('opacity')||.4);
@@ -1367,15 +1371,15 @@ document.querySelectorAll('.sdot').forEach(d=>{
     const scene=new THREE.Scene();
     const cam=new THREE.PerspectiveCamera(42,W/H,0.1,100);
     cam.position.set(0,0.5,6.4);
-    const renderer=new THREE.WebGLRender({antialias:true,alpha:true});
-    render.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-    render.setSize(W,H);
+    const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    renderer.setSize(W,H);
     stage.appendChild(renderer.domElement);
 
     scene.add(new THREE.AmbientLight(0xffffff,.55));
     const dl=new THREE.DirectionalLight(0xffffff,.85);dl.position.set(4,6,5);scene.add(dl);
     const pg=new THREE.PointLight(0x4ade80,1.1,30);pg.position.set(-4,2,4);scene.add(pg);
-    const pc=new THREE.PointLight(0x22d3e,.8,30);pc.position.set(4,-2,3);scene.add(pc);
+    const pc=new THREE.PointLight(0x22d3ee,.8,30);pc.position.set(4,-2,3);scene.add(pc);
 
     const group=new THREE.Group();scene.add(group);
 
@@ -1386,7 +1390,7 @@ document.querySelectorAll('.sdot').forEach(d=>{
 
     for(let i=0;i<3;i++){
         const geo=new THREE.CylinderGeometry(radii[i],radii[i],Hc,72,1,true,gap,Math.PI*2-gap);
-        const mat=new THREE.MeshStandardMaterial({color:cols[i],transparent:true,opacity:ops[i],slide:THREE.DoubleSide,metalness:.1,roughness:.45,emissive:cols[i],emissiveIntensity:.14});
+        const mat=new THREE.MeshStandardMaterial({color:cols[i],transparent:true,opacity:ops[i],side:THREE.DoubleSide,metalness:.1,roughness:.45,emissive:cols[i],emissiveIntensity:.14});
         group.add(new THREE.Mesh(geo,mat));
     }
     function ring(rOut,rIn,y,col,op){
@@ -1395,10 +1399,10 @@ document.querySelectorAll('.sdot').forEach(d=>{
         const mesh=new THREE.Mesh(g,m);mesh.rotation.x=-Math.PI/2;mesh.position.y=y;group.add(mesh);
     }
     for (let i=0;i<3;i++){ring(radii[i],radii[i+1],Hc/2,cols[i],.72);ring(radii[i],radii[i+1],-Hc/2,cols[i],.5);}
-    const cap=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.5,0.45,32),new THREE.MeshStandMaterial({color:0x92400e,roughness:.65}));
+    const cap=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.5,0.45,32),new THREE.MeshStandardMaterial({color:0x92400e,roughness:.65}));
     cap.position.y=Hc/2+0.34;group.add(cap);
-    let targetRY=0,targetRX=-0.18,cuRY=0,curRX=-0.18,autoSpin=true;
-    const el=render.domElement;el.style.cursor='grab';el.style.touchAction='none';
+    let targetRY=0,targetRX=-0.18,curRY=0,curRX=-0.18,autoSpin=true;
+    const el=renderer.domElement;el.style.cursor='grab';el.style.touchAction='none';
     let dragging=false,lx=0,ly=0;
     el.addEventListener('pointerdown',e=>{dragging=true;autoSpin=false;lx=e.clientX;ly=e.clientY;el.style.cursor='grabbing';try{el.setPointerCapture(e.pointerId);}catch(_){}});
     el.addEventListener('pointermove',e=>{if(!dragging)return;targetRY+=(e.clientX-lx)*0.01;targetRX=Math.max(-1.2,Math.min(1.2,targetRX+(e.clientY-ly)*0.01));lx=e.clientX;ly=e.clientY});
@@ -1409,7 +1413,7 @@ document.querySelectorAll('.sdot').forEach(d=>{
         targetRX=Math.max(-1.2,Math.min(1.2,-0.18+(ny-0.5)*1.4));
     };
     window.__m3dAutoSpin=function(){autoSpin=true;};
-    function resize(){W=stage.clientWidth;H=stage.clientHeight;if(!W||!H)return;cam.aspect=W/H;cam.updateProjectionMatrix();render.setSize(W,H);}
+    function resize(){W=stage.clientWidth;H=stage.clientHeight;if(!W||!H)return;cam.aspect=W/H;cam.updateProjectionMatrix();renderer.setSize(W,H);}
     window.addEventListener('resize',resize);setTimeout(resize,60);
     (function loop(){
         requestAnimationFrame(loop);
@@ -1428,7 +1432,7 @@ document.querySelectorAll('.sdot').forEach(d=>{
     const overlay=document.getElementById('m3dOverlay');
     const camoff=document.getElementById('m3dCamOff');
     const status=document.getElementById('m3dStatus');
-    const octx=overlay.getContent('2d');
+    const octx=overlay.getContext('2d');
     let hands=null,camera=null,running=false;
 
     function setStatus(t,c){status.textContent=t;if(c)status.style.color=c;}
@@ -1504,7 +1508,7 @@ document.querySelectorAll('.sdot').forEach(d=>{
 
         {id:'exterior',kw:['exterior','amidon','glicerina','suport','forma','rigid','flexibil','maleabil','foaie'],
          src:'Cap. II & III — Strat exterior',
-         a:`<strong>Stratul exterior</strong> = amidon de porumb + glicerină.<ul><li>Amidonul este un polimer natural care formează legături de hidrogen <span class="cbF>OH···OH</span> → dă <strong>rigiditate</strong> și forma sticlei</li><li>Glicerina este <strong>plastifiant</strong>: se bagă printre legături și crește <strong>flexibilitatea</strong></li></ul>Fără acest strat materialul ar fi prea fragil și ar crăpa.`},
+         a:`<strong>Stratul exterior</strong> = amidon de porumb + glicerină.<ul><li>Amidonul este un polimer natural care formează legături de hidrogen <span class="cbF">OH···OH</span> → dă <strong>rigiditate</strong> și forma sticlei</li><li>Glicerina este <strong>plastifiant</strong>: se bagă printre legături și crește <strong>flexibilitatea</strong></li></ul>Fără acest strat materialul ar fi prea fragil și ar crăpa.`},
 
         {id:'activ',kw:['activ','alginat','clorura','calciu','cacl2','spirulina','indicator','baza','alge brune'],
          src:'Cap II & III — Strat activ',
@@ -1779,7 +1783,7 @@ document.querySelectorAll('.sdot').forEach(d=>{
         {t:'E sigur / nontoxic?',q:'e sigur sanatate toxic'},
         {t:'Cât costă?',q:'cat costa'},
         {t:'Pași viitori',q:'planuri viitor imbunatatiri'},
-        {t:'De ce ați testat pe lapte?','de ce lapte'},
+        {t:'De ce ați testat pe lapte?',q:'de ce lapte'},
         {t:'Cine sunt autorii?',q:'cine sunt autorii'},
     ];
 
@@ -1795,7 +1799,7 @@ document.querySelectorAll('.sdot').forEach(d=>{
 
     function addMsg(html,who,src){
         const d=document.createElement('div');
-        d.className='cbMsg'+who;
+        d.className='cbMsg '+who;
         d.innerHTML=html+(src?`<div class="cbSrc">📄 ${src}</div>`:'');
         $body.appendChild(d);
         $body.scrollTop=$body.scrollHeight;
@@ -1832,38 +1836,15 @@ document.querySelectorAll('.sdot').forEach(d=>{
         }
         setTimeout(()=>$input.focus(),300);
     }
-    function
-})
+    function closePanel(){opened=false;$panel.classList.remove('open');$btn.classList.remove('open');$panel.setAttribute('aria-hidden','true');}
 
+    $btn.addEventListener('click',()=>opened?closePanel():openPanel());
+    $send.addEventListener('click',()=>ask($input.value));
+    $input.addEventListener('keydown',e=>{if(e.key==='Enter')ask($input.value);});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&opened)closePanel();});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    renderChips();
+})();
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
